@@ -2,13 +2,31 @@
 출석 관리 시스템
 
 ## 요구사항 체크리스트
-|요구사항 체크리스트|
-|------|---|
-|D1|O|
-|D2|O|
-|D3|O|
-|D4|O|
-|D5|O|
+<table>
+  <tr>
+    <td colspan="2">요구사항 체크리스트</td>
+  </tr>
+  <tr>
+    <td>D1</td>
+    <td>O</td>
+  </tr>
+  <tr>
+    <td>D2</td>
+    <td>O</td>
+  </tr>
+  <tr>
+    <td>D3</td>
+    <td>O</td>
+  </tr>
+  <tr>
+    <td>D4</td>
+    <td>O</td>
+  </tr>
+  <tr>
+    <td>D5</td>
+    <td>O</td>
+  </tr>
+</table>
 
 ## C++ 파일 세팅
 <img width="269" height="205" alt="image" src="https://github.com/user-attachments/assets/41a7b983-6794-41ec-84e5-2e6fe1a7d3fd" />
