@@ -17,6 +17,18 @@ GRADE_GOLD = "GOLD"
 GRADE_SILVER = "SILVER"
 GRADE_NORMAL = "NORMAL"
 
+def day_validator(day):
+    if day not in days:
+        raise ValueError("요일 입력이 잘못 되었습니다.")
+
+def line_validator(line):
+    try:
+        name, day = line.strip().split()
+    except ValueError:
+        raise ValueError("파일 내, 라인 유형이 '이름 요일' 형태가 아닙니다.")
+
+    return name, day
+
 def load_file() -> None:
     try:
         with open("attendance_weekday_500.txt", encoding='utf-8') as f:
@@ -24,11 +36,14 @@ def load_file() -> None:
                 line = f.readline()
                 if not line:
                     break
-                name, day = line.strip().split()
+
+                name, day = line_validator(line)
+                day_validator(day)
                 check_attendance(name, day)
 
     except FileNotFoundError:
-        print("파일을 찾을 수 없습니다.")
+        raise FileNotFoundError("파일을 찾을 수 없습니다.")
+
 
 def check_attendance(name, day) -> None:
     global person_data
@@ -82,7 +97,7 @@ def grading(score) -> str:
 
     return GRADE_NORMAL
 
-def result() -> None:
+def show_score_and_result() -> None:
     global person_data
 
     removed_player = []
@@ -101,8 +116,6 @@ def result() -> None:
     for name in removed_player:
         print(name)
 
-
-
 if __name__ == "__main__":
     load_file()
-    result()
+    show_score_and_result()
