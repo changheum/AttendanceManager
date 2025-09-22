@@ -1,7 +1,7 @@
 
 from abc import ABC, abstractmethod
 
-from Scoring import Scoring
+from mission2.Scoring import Scoring
 
 class Person:
     def __init__(self, name):

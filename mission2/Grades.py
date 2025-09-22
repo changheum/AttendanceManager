@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from Person import Person
+from mission2.Person import Person
 
 
 class Grade(ABC):

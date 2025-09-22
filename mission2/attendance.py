@@ -6,7 +6,7 @@ person_order = []
 
 days = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]
 
-from Person import PersonFactory, Person
+from mission2.Person import PersonFactory, Person
 
 
 def day_validator(day) -> None:
@@ -21,9 +21,9 @@ def line_validator(line) -> Tuple[str, str]:
 
     return name, day
 
-def load_file() -> None:
+def load_file(src: str) -> None:
     try:
-        with open("attendance_weekday_500.txt", encoding='utf-8') as f:
+        with open(src, encoding='utf-8') as f:
             while True:
                 line = f.readline()
                 if not line:
@@ -73,5 +73,5 @@ def show_score_and_result() -> None:
             print(name)
 
 if __name__ == "__main__":
-    load_file()
+    load_file("attendance_weekday_500.txt")
     show_score_and_result()
