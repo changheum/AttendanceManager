@@ -28,9 +28,6 @@ class PersonFactory:
 
         return cls._instance
 
-    def __init__(self):
-        pass
-
     @classmethod
     def create_or_get_person(cls, name) -> Person:
         if cls._instance is None:

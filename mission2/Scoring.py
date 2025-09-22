@@ -29,8 +29,6 @@ class Scoring:
                 total_score = total_score + SATURDAY_POINT
             elif attendance == "sunday":
                 total_score = total_score + SUNDAY_POINT
-            else:
-                raise ValueError("요일 정보가 잘못 되었습니다.")
 
         return total_score
 

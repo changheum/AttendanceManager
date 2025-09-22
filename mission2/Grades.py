@@ -48,5 +48,3 @@ class Grader:
         for grade in cls.grades:
             if grade.is_passed(person):
                 return grade.get_name()
-
-        return cls.grades[-1].get_name()

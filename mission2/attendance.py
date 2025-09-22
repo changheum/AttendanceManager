@@ -13,14 +13,6 @@ def day_validator(day) -> None:
     if day not in days:
         raise ValueError("요일 입력이 잘못 되었습니다.")
 
-def line_validator(line) -> Tuple[str, str]:
-    try:
-        name, day = line.strip().split()
-    except ValueError:
-        raise ValueError("파일 내, 라인 유형이 '이름 요일' 형태가 아닙니다.")
-
-    return name, day
-
 def load_file(src: str) -> None:
     try:
         with open(src, encoding='utf-8') as f:
@@ -29,7 +21,7 @@ def load_file(src: str) -> None:
                 if not line:
                     break
 
-                name, day = line_validator(line)
+                name, day = line.strip().split()
                 day_validator(day)
 
                 person = PersonFactory.create_or_get_person(name)
@@ -37,6 +29,8 @@ def load_file(src: str) -> None:
 
     except FileNotFoundError:
         raise FileNotFoundError("파일을 찾을 수 없습니다.")
+    except ValueError:
+        raise ValueError("파일 라인이 '이름 요일' 형식이 아닙니다.")
 
 def check_remove(person: Person) -> bool:
     grade = Grader.get_grade(person)
