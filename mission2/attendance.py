@@ -7,7 +7,7 @@ person_order = []
 days = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"]
 
 from mission2.Person import PersonFactory, Person
-
+from mission2.Remover import Remover
 
 def day_validator(day) -> None:
     if day not in days:
@@ -32,19 +32,7 @@ def load_file(src: str) -> None:
     except ValueError:
         raise ValueError("파일 라인이 '이름 요일' 형식이 아닙니다.")
 
-def check_remove(person: Person) -> bool:
-    grade = Grader.get_grade(person)
 
-    if grade != Grader.grades[-1].get_name():
-        return False
-    for attendance in person.attendances:
-        if attendance == "wednesday":
-            return False
-        elif attendance == "saturday":
-            return False
-        elif attendance == "sunday":
-            return False
-    return True
 
 def show_score_and_result() -> None:
 
@@ -63,7 +51,8 @@ def show_score_and_result() -> None:
     print("==============")
     for name in PersonFactory.get_person_order():
         person = PersonFactory.create_or_get_person(name)
-        if check_remove(person):
+
+        if Remover.check_remove(person):
             print(name)
 
 if __name__ == "__main__":
